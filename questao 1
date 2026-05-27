@@ -1,0 +1,58 @@
+using System.Collections.Generic;
+using System;
+using System.Security.Cryptography.X509Certificates;
+
+public class Lista
+{
+    public int nItens;
+    public int i;
+    public int numeroEscolha;
+
+    public void Items()
+    {
+        List<string> Compras = new List<string>();
+        while (true)
+        {
+            Console.WriteLine("Voce deseja: \n (1) Adicionar um produto\n(2) Remover um produto\n(3)Listar todos os produtos");
+            numeroEscolha = int.Parse(Console.ReadLine());
+
+            if (numeroEscolha == 1)
+            {
+                Console.WriteLine("Quantos itens deseja adicionar?");
+                nItens = int.Parse(Console.ReadLine());
+                for (i = 0; i< nItens; i++)
+                {
+                    Console.WriteLine("Escreva o item da sua compra");
+                    Compras.Add(Console.ReadLine());
+                }
+            }
+            else if (numeroEscolha == 2)
+            {
+                Console.WriteLine("qual item para remover?");
+                Compras.Remove(Console.ReadLine());
+            }
+            else if (numeroEscolha == 3)
+            {
+                foreach (string item in Compras)
+                {
+                    Console.WriteLine(item);
+                }
+            }
+            else if (numeroEscolha == 4)
+            {
+                Console.WriteLine(Compras.Count);
+            }
+        }
+    }
+
+
+}
+public class Program
+{
+public static void Main()
+    {
+        Lista l = new Lista();
+        l.Items();
+    }
+
+}
