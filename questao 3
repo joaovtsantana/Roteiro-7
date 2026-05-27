@@ -1,0 +1,33 @@
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public void Method()
+    {
+        HashSet<int> num = new HashSet<int>();
+        while (true)
+        {
+            num.Add(int.Parse(Console.ReadLine()));
+            if (num.Contains(0))
+            {
+                break;
+            }
+        }
+        num.Remove(0);
+        foreach (int numero in num)
+        {
+            Console.WriteLine($"- {numero}");
+        }
+
+    }
+}
+
+public class Program2
+{
+    public static void Main()
+    {
+        Program p = new Program();
+        p.Method();
+    }
+}
