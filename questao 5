@@ -1,0 +1,20 @@
+using System;
+using System.Collections.Generic;
+
+public class Program
+{
+    public static void Main()
+    {
+        Stack<char> palavra = new Stack<char>();
+        Console.WriteLine("digite uma palavra");
+        string palav = Console.ReadLine();
+        foreach(char c in palav)
+        {
+            palavra.Push(c);
+        }
+        while (palavra.Count > 0)
+        {
+            Console.Write(palavra.Pop());
+        }
+    }
+}
