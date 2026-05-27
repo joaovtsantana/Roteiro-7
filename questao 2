@@ -1,0 +1,61 @@
+using System;
+using System.Collections.Generic;
+
+public class Catalogo
+{
+    public int i;
+    public int opcao;
+    public int quantidade;
+    public int nProduto;
+    public int aCodigo;
+
+    public void verificacao()
+    {
+        Dictionary<int, string> Produtos = new Dictionary<int, string>();
+
+        while (true)
+        {
+            Console.WriteLine("Você deseja:\n(1)Adicionar Produto\n(2)Buscar e exibir pelo código\n(3)Listar todos os códigos e nomes\n(4)Verificar se um código de produto ja existe");
+            opcao = int.Parse(Console.ReadLine());
+
+            if (opcao == 1)
+            {
+                Console.WriteLine("Quantos produtos você deseja adicionar?");
+                quantidade = int.Parse(Console.ReadLine());
+                for (i = 0; i < quantidade; i++)
+                {
+                    Console.WriteLine("numero do produto: ");
+                    nProduto = int.Parse(Console.ReadLine());
+                    Console.WriteLine("nome do produto: ");
+                    if (Produtos.ContainsKey(nProduto))
+                        Console.WriteLine("Código já existe!");
+                    else
+                        Produtos.Add(nProduto, Console.ReadLine());
+                }
+            }
+            else if (opcao == 2)
+            {
+                Console.WriteLine("digite o numero do produto ");
+                nProduto = int.Parse(Console.ReadLine());
+                Console.WriteLine(Produtos[nProduto]);
+            }
+            else if (opcao == 3)
+            {
+                foreach (KeyValuePair<int, string> item in Produtos)
+                {
+                    Console.WriteLine($"{item.Key} - {item.Value}");
+                }
+            }
+        }
+    }
+}
+
+
+public class Program 
+{
+    public static void Main()
+    {
+        Catalogo c = new Catalogo();
+        c.verificacao();
+    }
+}
