@@ -1,0 +1,41 @@
+using System;
+using System.Collections.Generic;
+
+public class Fila
+{
+    public int opc;
+    public void Method()
+    {
+        Queue<string> nomes = new Queue<string>();
+        while (true)
+        {
+        Console.WriteLine("Escolha a opção:\n(1)Adicionar cliente\n(2)Atender Cliente\n(3)Ver tamanho da fila\n(4)Sair");
+            opc = int.Parse(Console.ReadLine());
+        if (opc == 1)
+            {
+                nomes.Enqueue(Console.ReadLine());
+            }
+        else if (opc == 2)
+            {
+                Console.WriteLine(nomes.Dequeue());
+            }
+        else if (opc == 3)
+            {
+                Console.WriteLine(nomes.Count);
+            }
+        else if (opc == 4)
+            {
+                break;
+            }
+        }
+    }
+}
+
+public class Program
+{
+    public static void Main()
+    {
+        Fila f = new Fila();
+        f.Method();
+    }
+}
